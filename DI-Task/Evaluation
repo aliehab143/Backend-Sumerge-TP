@@ -1,0 +1,19 @@
+Score: 9/10
+Nice job! You've really stepped up from the previous assignment. This shows a much better understanding of Spring concepts and dependency injection.
+
+What you nailed:
+All the requirements are there - You've got two implementations of CourseRecommender, proper Spring configuration, and you're demonstrating both constructor and setter injection (even if one is commented out).
+Good use of Spring annotations - Your @Component, @Service, @Primary, and @Qualifier usage is spot on. The package structure is clean and makes sense too.
+You covered all three precedence methods - @Primary on AIRecommender, @Qualifier in the constructor, and even named the WebRecommender bean properly for name-based injection.
+
+Where you can tighten things up:
+The commented code approach - While I appreciate that you wanted to show both injection methods, having commented code in a submission feels a bit unfinished. Maybe create two separate service classes or mention it in documentation instead?
+Your bean naming is inconsistent - You explicitly named WebRecommender with @Component("webRecommender") but let AIRecommender use the default naming. Not wrong, just inconsistent.
+The precedence demonstration could be clearer - Right now you're using @Qualifier which overrides the @Primary, so someone running this won't actually see the primary bean in action. Maybe show both scenarios?
+
+Small suggestions:
+Consider adding some comments explaining which injection method you're demonstrating
+Maybe add a toString() method to your recommender classes to make the output clearer
+The Course class could use some more realistic properties (duration, difficulty, etc.)
+
+But honestly, this is solid work. You clearly understand how DI works in Spring and you've implemented all the requirements correctly. The architecture is clean and the code is well-organized. Good progression from the previous assignment!
