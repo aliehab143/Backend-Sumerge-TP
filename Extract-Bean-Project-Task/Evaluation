@@ -1,0 +1,16 @@
+Score: 8/10
+This is a solid attempt at a more advanced Spring task! You've tackled all four requirements and shown you understand the concepts, but there are some execution issues that hold it back from being excellent.
+What you handled well:
+All requirements covered - You've converted to explicit bean definitions, created multiple variations, extracted to separate projects, and attempted customization. The multi-module Maven setup shows you understand project separation.
+Good understanding of @Qualifier usage - Your constructor injection with @Qualifier("webRecommender") demonstrates you get how to distinguish between beans.
+Clean separation - Having the recommender as a separate module and importing it as a dependency is exactly what was asked for.
+Where things got messy:
+Inconsistent bean management approach - You're mixing explicit @Bean definitions in AppConfig with implicit @Component annotations. Pick one approach and stick with it. If you're going explicit, remove the annotations.
+Your component scanning is off - You're scanning for "implementation" package but your beans are defined explicitly in config. This creates confusion about which beans are actually being used.
+The customization step isn't clear - Step 4 asks you to customize the extracted bean, but I can't see where you've actually changed the behavior meaningfully. The comment about "overriding" doesn't show actual customization.
+Package structure inconsistency - Some files have implementation package, others don't. This makes it hard to follow which beans are coming from where.
+Quick fixes:
+Either go full explicit or full implicit - If using @Bean methods, remove @Component annotations entirely. Or vice versa.
+Make the customization obvious - Change the WebRecommender to return different courses or add new functionality to clearly show it's been customized.
+Clean up the component scanning - Make sure your @ComponentScan actually matches where your annotated classes are.
+The core concepts are there, you just need to clean up the execution. This feels like you understood each step individually but didn't quite tie them together into a cohesive whole.
