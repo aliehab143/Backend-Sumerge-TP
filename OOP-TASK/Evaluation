@@ -1,0 +1,15 @@
+Score: 7/10
+Hey, nice work on getting all the main pieces together! I can see you've got a solid grasp of the basic OOP concepts they wanted you to demonstrate.
+What I liked:
+Your class structure makes sense - having separate classes for Question, Quiz, User, and the main app feels natural. You've done a good job with encapsulation too, keeping your fields private and using getters where needed. The way you're using objects inside other objects (like Quiz containing Questions) shows you understand composition.
+Where you can level up your OOP game:
+The Quiz class is a bit wonky - every time someone calls getQuestions(), you're shuffling and picking new questions. That's not really how a quiz should work, right? Maybe shuffle once when the quiz starts, then keep that order.
+Your classes are pretty basic - which is fine for learning, but you're missing some of the cooler OOP stuff like inheritance and interfaces. What if you had different types of questions? Or what if you wanted to make your User class implement some kind of interface?
+The QuizApplication is doing everything - it's loading questions, running the UI, managing the game flow... that's a lot for one class. In real OOP, you'd probably split some of that up.
+Quick suggestions:
+
+Try adding some interfaces - maybe a Scorable interface that User implements
+Consider making different question types that inherit from a base Question class
+Think about whether your Quiz should prepare everything upfront instead of shuffling every time
+
+You've definitely got the fundamentals down though. The object relationships make sense and your encapsulation is on point. Just need to explore some of the more advanced OOP patterns.
