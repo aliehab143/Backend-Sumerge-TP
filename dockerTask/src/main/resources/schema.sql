@@ -1,0 +1,41 @@
+
+CREATE TABLE IF NOT EXISTS author (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    birthdate DATE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS course (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    credit INTEGER NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS author_courses (
+    author_id BIGINT NOT NULL,
+    course_id BIGINT NOT NULL,
+    PRIMARY KEY (author_id, course_id),
+    FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS assessment (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    content TEXT,
+    course_id BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS rating (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    number INTEGER NOT NULL,
+    course_id BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
